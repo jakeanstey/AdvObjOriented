@@ -6,16 +6,17 @@ import java.util.GregorianCalendar;
 public class Employee {
 	private String firstName, lastName, gender, street, city, postal, email, department;
 	private Date dateOfBirth, dateOfHire;
-	private int employeeID, SIN, phone;
-	private double payRate, earnings;
+	private int employeeID, SIN;
+	private double phone, payRate, earnings;
 
-	public Employee() {}
+	public Employee() {
+	}
 
-	public Employee(String firstName, String lastName, String email, Date dateOfBirth, int year, int month, int day, String gender, int SIN, int phone, String street, String city, String postal) {
+	public Employee(String firstName, String lastName, String email, Date dateOfBirth, int year, int month, int day, String gender, int SIN, double phone, String street, String city, String postal) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.dateOfBirth = new GregorianCalendar(year,month-1, day).getTime();
+		this.dateOfBirth = new GregorianCalendar(year, month - 1, day).getTime();
 		this.gender = gender;
 		this.SIN = SIN;
 		this.phone = phone;
@@ -24,11 +25,11 @@ public class Employee {
 		this.postal = postal;
 	}
 
-	public Employee(String firstName, String lastName, String email, Date dateOfBirth, int year, int month, int day, int employeeID, String gender, int SIN, int phone, String street, String city, String postal, Date dateOfHire, double payRate, double earnings, String department) {
+	public Employee(String firstName, String lastName, String email, Date dateOfBirth, int year, int month, int day, int employeeID, String gender, int SIN, double phone, String street, String city, String postal, Date dateOfHire, double payRate, double earnings, String department) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.dateOfBirth = new GregorianCalendar(year,month-1, day).getTime();
+		this.dateOfBirth = new GregorianCalendar(year, month - 1, day).getTime();
 		this.employeeID = employeeID;
 		this.gender = gender;
 		this.SIN = SIN;
@@ -122,11 +123,11 @@ public class Employee {
 		this.dateOfHire = dateOfHire;
 	}
 
-	public int getPhone() {
+	public double getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(double phone) {
 		this.phone = phone;
 	}
 
@@ -153,14 +154,15 @@ public class Employee {
 	public int getSIN() {
 		return SIN;
 	}
-	
-	public String getFullName(){
+
+	public String getFullName() {
 		return this.firstName + " " + lastName;
 	}
-	
-	public String toString(){
+
+	@Override
+	public String toString() {
 		String employeeInfo = "";
-		employeeInfo += "\nName:\t\t" + getFullName();
+		employeeInfo += "\nName:\t\t\t" + getFullName();
 		employeeInfo += "\nHire Date:\t\t" + getDateOfHire();
 		return employeeInfo;
 	}
